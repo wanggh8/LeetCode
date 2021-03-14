@@ -10,13 +10,14 @@ class Solution {
         var q = [String]()
         var visited = Set<String>()
         var dead = Set<String>(deadends)
+
         q.append("0000")
         visited.insert("0000")
         var num = 0
 
         while !q.isEmpty {
-
-            for i in 0..<q.count {
+            let n = q.count
+            for i in 0..<n {
                 var cur = q.removeFirst()
 
                 if dead.contains(cur) {
@@ -55,12 +56,10 @@ class Solution {
             return String(cs)
         }
         var number:UInt32 = 0
-        for code in str.unicodeScalars {
-            number = code.value;
+        for code in String(cs[i]).unicodeScalars {
+            number = code.value
         }
-        number += 1
-        let ch = Character(UnicodeScalar(number)!)
-        cs[i] = ch
+        cs[i] = Character(UnicodeScalar(number + 1)!)
         return String(cs)
 
     }
@@ -77,9 +76,7 @@ class Solution {
         for code in str.unicodeScalars {
             number = code.value;
         }
-        number -= 1
-        let ch = Character(UnicodeScalar(number)!)
-        cs[i] = ch
+        cs[i] = Character(UnicodeScalar(number - 1)!)
         return String(cs)
     }
 }
