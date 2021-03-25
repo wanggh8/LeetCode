@@ -13,6 +13,12 @@ class Solution {
         let s2 = [Character](word2)
         let m = s1.count
         let n = s2.count
+        if (m == 0) {
+            return n
+        }
+        if (n == 0) {
+            return m
+        }
         var dp = [[Int]]()
         // base case 
         // x，y 为0时
@@ -25,7 +31,6 @@ class Solution {
             for t in 1...n {
                 if s1[i - 1] == s2[t - 1] {
                     dp[i][t] = dp[i - 1][t - 1]
-
                 } else {
                     dp[i][t] = min(dp[i - 1][t] + 1, dp[i - 1][t - 1] + 1, dp[i][t - 1] + 1)
                 }
