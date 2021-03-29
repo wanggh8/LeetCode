@@ -30,7 +30,7 @@ class Solution {
         }
         q.append(root!)
         while !q.isEmpty {
-            var n = q.count
+            let n = q.count
             for i in 0..<n {
                 var cur = q.removeFirst()
                 if cur.left == nil && cur.right == nil {
@@ -48,5 +48,7 @@ class Solution {
         return depth
     }
 }
+
+
 // @lc code=end
 
